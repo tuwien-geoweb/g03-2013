@@ -2,6 +2,8 @@
   $name = $_REQUEST['name'];  // $_REQUEST enthält die Benutzerangaben
   $email = $_REQUEST['email'];
   $message = $_REQUEST['message'] ;
+  $longitude = $_REQUEST['longitude'] ;
+  $latitude = $_REQUEST['latitude'] ;
 
   if (isset($_REQUEST['geschlecht'])) 
      {$anrede=$_REQUEST['geschlecht'];} // Frau/Herr
@@ -34,9 +36,9 @@
   // bei Zahlen ohne Hochkomma (hier nur bei teamflag)
   // SQL-String zusammensetzen
 	
-  $sql = "INSERT INTO feedback (f_name,f_mail,f_anrede,f_msg,f_geoweb,f_datum)";
+  $sql = "INSERT INTO feedback (f_name,f_mail,f_anrede,f_msg,f_geoweb,f_datum, geom)";
   $sql = $sql . " VALUES ('" . $name . "','" . $email . "','" . $anrede . 
-         "','" . $message . "'," . $teamflag . ",'" . date("d-m-Y") . "')";
+         "','" . $message . "'," . $teamflag . ",'" . date("d-m-Y") . "','". $longitude . "','". $latitude . "')";
          
 
   // SQL-String an Datenbank-Server schicken (Beispiel SQLite-Datenbank: 
