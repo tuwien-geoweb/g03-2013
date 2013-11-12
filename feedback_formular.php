@@ -59,7 +59,7 @@
                                  <td><input type="text" name="email" size="50" /></td>
                          </tr>
                          <tr><td>Ihre Koordinaten </td>
-                                 <td><input type="text" name="longitude" size="25" /><input type="text" name="latitude" size="25" /></td>
+                                 <td><input type="text" name="longitude" size="20" /><input type="text" name="latitude" size="20" /></td>
                         </tr>
                  </table>
                 Feedback: <br />
