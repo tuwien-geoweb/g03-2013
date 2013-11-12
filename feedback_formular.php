@@ -59,9 +59,8 @@
                                  <td><input type="text" name="email" size="50" /></td>
                          </tr>
                          <tr><td>Ihre Koordinaten </td>
-                                 <td><input type="text" name="longitude" size="25" /></td>
-                                 <td><input type="text" name="latitude" size="25" /></td>
-                          </tr>
+                                 <td><input type="text" name="longitude" size="25" /><input type="text" name="latitude" size="25" /></td>
+                        </tr>
                  </table>
                 Feedback: <br />
                          <textarea name="message" rows="10" cols="50"></textarea>
