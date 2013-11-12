@@ -36,9 +36,9 @@
   // bei Zahlen ohne Hochkomma (hier nur bei teamflag)
   // SQL-String zusammensetzen
 	
-  $sql = "INSERT INTO feedback (f_name,f_mail,f_anrede,f_msg,f_geoweb,f_datum)";
+  $sql = "INSERT INTO feedback (f_name,f_mail,f_anrede,f_msg,f_geoweb,f_datum, geom)";
   $sql = $sql . " VALUES ('" . $name . "','" . $email . "','" . $anrede . 
-         "','" . $message . "'," . $teamflag . ",'" . date("d-m-Y") . "');
+         "','" . $message . "'," . $teamflag . ",'" . date("d-m-Y") . "'"', GeomFromText('5.123123 10.123121234', 4326))");
          
 
   // SQL-String an Datenbank-Server schicken (Beispiel SQLite-Datenbank: 
