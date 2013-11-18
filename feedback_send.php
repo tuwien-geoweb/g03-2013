@@ -4,8 +4,6 @@
   $message = $_REQUEST['message'] ;
   $longitude = $_REQUEST['longitude'] ;
   $latitude = $_REQUEST['latitude'] ;
-  $lon = round($longitude, 4) ;
-  $lat = round($latitude, 4) ;
 
   if (isset($_REQUEST['geschlecht'])) 
      {$anrede=$_REQUEST['geschlecht'];} // Frau/Herr
@@ -40,7 +38,7 @@
 	
   $sql = "INSERT INTO feedback (f_name,f_mail,f_anrede,f_msg,f_geoweb,f_datum, geom)";
   $sql = $sql . " VALUES ('" . $name . "','" . $email . "','" . $anrede . 
-         "','" . $message . "'," . $teamflag . ",'" . date("d-m-Y") . "',('POINT(".$lon." ".$lat.")'))";
+         "','" . $message . "'," . $teamflag . ",'" . date("d-m-Y") . "',('POINT(".$longitude." ".$latitude.")'))";
          
 
   // SQL-String an Datenbank-Server schicken (Beispiel SQLite-Datenbank: 
