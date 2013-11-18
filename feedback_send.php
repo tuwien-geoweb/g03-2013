@@ -38,7 +38,7 @@
 	
   $sql = "INSERT INTO feedback (f_name,f_mail,f_anrede,f_msg,f_geoweb,f_datum, geom)";
   $sql = $sql . " VALUES ('" . $name . "','" . $email . "','" . $anrede . 
-         "','" . $message . "'," . $teamflag . ",'" . date("d-m-Y") . "',('POINT(round(".$longitude.", length [4]) round(".$latitude.", length [4]))'))";
+         "','" . $message . "'," . $teamflag . ",'" . date("d-m-Y") . "',('POINT(round(".$longitude.", length [4, decimal]) round(".$latitude.", length [4, decimal]))'))";
          
 
   // SQL-String an Datenbank-Server schicken (Beispiel SQLite-Datenbank: 
