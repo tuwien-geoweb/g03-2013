@@ -18,7 +18,7 @@
       $teamflag=0;}
 
   // Funktion mail(adress,subject,message,header) für Versenden per Mail
-  mail( "c_obererlacher@gmx.at",
+  mail( "jumbostone@hotmail.com",
         "geoweb: Feedback Formular", 
         "Gesendet von ".$anrede." ".$name." (".$team."): ".$message, 
         "From: $email" ) 
@@ -38,7 +38,7 @@
 	
   $sql = "INSERT INTO feedback (f_name,f_mail,f_anrede,f_msg,f_geoweb,f_datum, geom)";
   $sql = $sql . " VALUES ('" . $name . "','" . $email . "','" . $anrede . 
-         "','" . $message . "'," . $teamflag . ",'" . date("d-m-Y") . "','" . $longitude . "')";
+         "','" . $message . "'," . $teamflag . ",'" . date("d-m-Y") . "', ST_AsText('" . $longitude . "','" . $latitude . "')";
          
 
   // SQL-String an Datenbank-Server schicken (Beispiel SQLite-Datenbank: 
