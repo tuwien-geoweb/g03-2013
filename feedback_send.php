@@ -18,7 +18,7 @@
       $teamflag=0;}
 
   // Funktion mail(adress,subject,message,header) für Versenden per Mail
-  mail( "c_obererlacher@gmx.at",
+  mail( "jumbostone@hotmail.com",
         "geoweb: Feedback Formular", 
         "Gesendet von ".$anrede." ".$name." (".$team."): ".$message, 
         "From: $email" ) 
