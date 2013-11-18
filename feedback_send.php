@@ -4,8 +4,8 @@
   $message = $_REQUEST['message'] ;
   $longitude = $_REQUEST['longitude'] ;
   $latitude = $_REQUEST['latitude'] ;
-  $lon = echo round($longitude, 4) ;
-  $lat = echo round($latitude, 4) ;
+  $lon = float round(float $longitude [,int 4]) ;
+  $lat = float round(float $latitude [,int 4]) ;
 
   if (isset($_REQUEST['geschlecht'])) 
      {$anrede=$_REQUEST['geschlecht'];} // Frau/Herr
