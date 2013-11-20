@@ -4,8 +4,8 @@
   $message = $_REQUEST['message'] ;
   $longitude = $_REQUEST['longitude'] ;
   $latitude = $_REQUEST['latitude'] ;
-  $longtitude_rounded =  round($longtitude,2)
-  $latitude_rounded =  round($latitude,2)
+  $longitude_rounded =  round($longitude,4)
+  $latitude_rounded =  round($latitude,4)
 
   if (isset($_REQUEST['geschlecht'])) 
      {$anrede=$_REQUEST['geschlecht'];} // Frau/Herr
@@ -40,7 +40,7 @@
 	
   $sql = "INSERT INTO feedback (f_name,f_mail,f_anrede,f_msg,f_geoweb,f_datum, geom)";
   $sql = $sql . " VALUES ('" . $name . "','" . $email . "','" . $anrede . 
-         "','" . $message . "'," . $teamflag . ",'" . date("d-m-Y") . "',('POINT(".$longtitude_rounded." ".$latitude_rounded.")'))";
+         "','" . $message . "'," . $teamflag . ",'" . date("d-m-Y") . "',('POINT(".$longitude_rounded." ".$latitude_rounded.")'))";
          
 
   // SQL-String an Datenbank-Server schicken (Beispiel SQLite-Datenbank: 
@@ -50,6 +50,7 @@
 
 echo "Danke für das Feedback!<br />Die Daten wurden per Mail übermittelt".
      " und in einer Datenbank gespeichert!";
+     $longtitude_rounded;
      
 /* Alternativ: Aufruf einer Html-Seite für Danksagung. */ 
 /* header( "Location: http://xxx.yyy/feedback_thank.htm" );exit; */
