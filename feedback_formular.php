@@ -59,8 +59,8 @@
                                  <td><input type="text" name="email" size="50" /></td>
                          </tr>
                          <tr><td>Ihre Koordinaten </td>
-                                 <td><input type="decimal" name="latitude" size="20" placeholder="geographische Breite eingeben"/>
-                                 <input type="decimal" name="longitude" size="20" placeholder="geographische Länge eingeben"/></td>
+                                 <td><input type="text" id = "latitude" name="latitude" size="20" placeholder="geographische Breite eingeben"/>
+                                 <input type="text" id = "longitude" name="longitude" size="20" placeholder="geographische Länge eingeben"/></td>
                         </tr>
                  </table>
                 Feedback: <br />
