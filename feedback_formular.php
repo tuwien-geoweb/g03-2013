@@ -100,7 +100,7 @@
         }),
         new ol.layer.Vector({
           source: new ol.source.Vector({
-            url: 'locations.geojson',
+            url: 'http://student.ifip.tuwien.ac.at/geoserver/g03_2013/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=g03_2013:feedback&maxFeatures=50&outputFormat=json',
             parser: new ol.parser.GeoJSON()
           })
         })
