@@ -46,10 +46,7 @@
   
   include 'geoweb_db_close.php'; // Datenbank schließen
 
-echo "Danke für das Feedback!<br />Die Daten wurden per Mail übermittelt".
-     " und in einer Datenbank gespeichert!";
-     
-/* Alternativ: Aufruf einer Html-Seite für Danksagung. */ 
-/* header( "Location: http://xxx.yyy/feedback_thank.htm" );exit; */
+
+header( "Location: http://student.ifip.tuwien.ac.at/geoweb/2013/g03/app/feedback_danksagung.html" );
 
 ?> 
