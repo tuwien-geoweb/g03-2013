@@ -82,7 +82,7 @@
                   <div id="map" class="span1">
                   </div>
          </div>
-   </div>        <div style="clear: both;">&nbsp;</div>
+   </div>        
 </div>
 
 
