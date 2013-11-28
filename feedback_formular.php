@@ -97,7 +97,7 @@
       }),
       layers: [
         new ol.layer.Tile({
-          source: new ol.source.MapQuestOpenAerial()
+          source: new ol.source.OSM()
         }),
         new ol.layer.Vector({
           source: new ol.source.Vector({
