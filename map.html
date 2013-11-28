@@ -1,0 +1,39 @@
+<html lang="en">
+  <head>
+   <meta charset="utf-8">
+    <link rel="stylesheet" href="ol.css" type="text/css">
+    <style>
+      #map {
+        height: 512px;
+        width: 512px;
+      }
+    </style>
+    <script src="ol.js" type="text/javascript"></script>
+    <title>Exercise</title>
+  </head>
+  <body>
+    <h1>Übung</h1>
+    
+      <form id="form"><input type="text" name="text" placeholder="Geben Sie einen Ort oder eine Adresse ein." size="100" ></input></form>
+      <form id="form"><input type="submit" name="submit" value="Suchen"></input></form>
+    
+    <div id="map"></div>
+    <script type="text/javascript">
+          var map = new ol.Map({
+        layers: [
+            new ol.layer.Tile({
+      source: new ol.source.OSM()
+        })
+      ],
+      renderers: ol.RendererHints.createFromQueryData(),
+      target: 'map',
+      view: new ol.View2D({
+        center: [0, 0],
+        zoom: 1
+      })
+    });
+
+      
+    </script>
+  </body>
+</html>
