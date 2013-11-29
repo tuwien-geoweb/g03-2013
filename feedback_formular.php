@@ -91,7 +91,10 @@
       var map = new ol.Map({
       target: 'map',
       renderer: ol.RendererHint.CANVAS,
-      
+        view: new ol.View2D({
+        center: ol.proj.transform([16.37, 48.21], 'EPSG:4326', 'EPSG:3857'),
+        zoom: 11
+      }),
       layers: [
         new ol.layer.Tile({
           source: new ol.source.OSM()
@@ -101,28 +104,9 @@
             url: 'http://student.ifip.tuwien.ac.at/geoserver/g03_2013/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=g03_2013:feedback&maxFeatures=50&outputFormat=json',
             parser: new ol.parser.GeoJSON()
           })
-          style: new ol.style.Style({
-              symbolizers: [
-                new ol.style.Shape({
-                  fill: new ol.style.Fill({
-                    color: '#CC0000'
-                  }),
-                  size: 10,
-                  stroke: new ol.style.Stroke({
-                    color: '#800000'
-                  })
-
-                })
-
-              ]
-
-            })
        })
         ]
-        view: new ol.View2D({
-        center: ol.proj.transform([16.37, 48.21], 'EPSG:4326', 'EPSG:3857'),
-        zoom: 11
-      }),
+
       });
     </script>
 
