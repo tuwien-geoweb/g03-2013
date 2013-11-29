@@ -104,9 +104,24 @@
             url: 'http://student.ifip.tuwien.ac.at/geoserver/g03_2013/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=g03_2013:feedback&maxFeatures=50&outputFormat=json',
             parser: new ol.parser.GeoJSON()
           })
-        })
-      ]
-    });
+          style: new ol.style.Style({
+              symbolizers: [
+                new ol.style.Shape({
+                  fill: new ol.style.Fill({
+                    color: '#CD0000'
+                  }),
+                  size: 10,
+                  stroke: new ol.style.Stroke({
+                    color: '#8B0000'
+                  })
+
+                })
+
+              ]
+
+            })
+
+          });
     </script>
 
 <div id="unten">
