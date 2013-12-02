@@ -44,7 +44,7 @@ geolocation.on('change:position', function() {
   renderers: ol.RendererHints.createFromQueryData(),
   target: 'map',
   view: new ol.View2D({
-    center: ol.Geolocation(),
+    center: geolocation.getPosition(),
     zoom: 10,
     maxZoom: 18
   })
