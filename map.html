@@ -28,6 +28,14 @@
     <div id="map"></div>
  
     <script type="text/javascript">
+    
+    if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        var geolocpoint = new ol.source.OSM.LatLng(latitude, longitude);
+    
+    
         var map = new ol.Map({
   layers: [
     new ol.layer.Tile({
@@ -43,12 +51,6 @@
   })
 });
 
-if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-        var latitude = position.coords.latitude;
-        var longitude = position.coords.longitude;
-        var geolocpoint = new ol.source.OSM.LatLng(latitude, longitude);
-  
 
 // Submit query to Nominatim and zoom map to the result's extent
 var form = document.forms[0];
