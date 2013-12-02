@@ -28,9 +28,14 @@
     <div id="map"></div>
  
     <script type="text/javascript">
+ 
+ var geolocation = new ol.Geolocation();
+geolocation.setTracking(true); // here the browser may ask for confirmation
+geolocation.on('change:position', function() {
+  console.log(geolocation.getPosition());
+});
     
-    
-      var map = new ol.Map({
+          var map = new ol.Map({
   layers: [
     new ol.layer.Tile({
       source: new ol.source.OSM()
@@ -45,11 +50,6 @@
   })
 });
 
-var geolocation = new ol.Geolocation();
-geolocation.setTracking(true); // here the browser may ask for confirmation
-geolocation.on('change:position', function() {
-  map(geolocation.getPosition());
-});
 
 // Submit query to Nominatim and zoom map to the result's extent
 var form = document.forms[0];
