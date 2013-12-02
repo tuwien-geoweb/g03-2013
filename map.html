@@ -49,8 +49,6 @@ geolocation.on('change:position', function setPosition(position) {
     maxZoom: 18
    })
 });
-  .setView([lat, lon], zoom);
-
 
 // Submit query to Nominatim and zoom map to the result's extent
 var form = document.forms[0];
