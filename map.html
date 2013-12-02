@@ -28,18 +28,9 @@
     <div id="map"></div>
  
     <script type="text/javascript">
-
-var script = document.createElement('script');
-script.src = 'ol.js';
-document.head.appendChild(script);
-
-var geolocation = new ol.Geolocation();
-geolocation.setTracking(true); // here the browser may ask for confirmation
-geolocation.on('change:position', function() {
-  map(geolocation.getPosition());
-});
-
-  var map = new ol.Map({
+    
+    
+      var map = new ol.Map({
   layers: [
     new ol.layer.Tile({
       source: new ol.source.OSM()
@@ -54,6 +45,15 @@ geolocation.on('change:position', function() {
   })
 });
 
+var script = document.createElement('script');
+script.src = 'ol.js';
+document.head.appendChild(script);
+
+var geolocation = new ol.Geolocation();
+geolocation.setTracking(true); // here the browser may ask for confirmation
+geolocation.on('change:position', function() {
+  map(geolocation.getPosition());
+});
 
 
 
