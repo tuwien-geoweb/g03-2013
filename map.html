@@ -39,23 +39,17 @@
   renderers: ol.RendererHints.createFromQueryData(),
   target: 'map',
   view: new ol.View2D({
-    center: geolocation,
+    center: ol.geolocation,
     zoom: 10,
     maxZoom: 18
   })
 });
-
-var script = document.createElement('script');
-script.src = 'ol.js';
-document.head.appendChild(script);
 
 var geolocation = new ol.Geolocation();
 geolocation.setTracking(true); // here the browser may ask for confirmation
 geolocation.on('change:position', function() {
   map(geolocation.getPosition());
 });
-
-
 
 // Submit query to Nominatim and zoom map to the result's extent
 var form = document.forms[0];
