@@ -31,8 +31,8 @@
  
  var geolocation = new ol.Geolocation();
 geolocation.setTracking(true); // here the browser may ask for confirmation
-geolocation.on('change:position', function() {
-  console.log(geolocation.getPosition());
+geolocation.on('change:position', function setPosition(position) {
+  map.panTo([position.coords.latitude, position.coords.longitude]);
 });
     
           var map = new ol.Map({
