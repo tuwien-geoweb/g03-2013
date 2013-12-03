@@ -32,13 +32,7 @@
  
     <script src="resources/ol3/ol.js" type="text/javascript">
  
- var geolocation = new ol.Geolocation();
-geolocation.setTracking(true); // here the browser may ask for confirmation
-geolocation.on('change:position', function setPosition(position) {
-  map.panTo([position.coords.latitude, position.coords.longitude]);
-});
-    
-          var map = new ol.Map({
+  var map = new ol.Map({
   layers: [
     new ol.layer.Tile({
       source: new ol.source.OSM()
@@ -51,6 +45,12 @@ geolocation.on('change:position', function setPosition(position) {
     zoom: 10,
     maxZoom: 18
    })
+});
+
+ var geolocation = new ol.Geolocation();
+geolocation.setTracking(true); // here the browser may ask for confirmation
+geolocation.on('change:position', function setPosition(position) {
+  map.panTo([position.coords.latitude, position.coords.longitude]);
 });
 
 // Submit query to Nominatim and zoom map to the result's extent
