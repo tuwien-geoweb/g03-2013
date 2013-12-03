@@ -49,7 +49,7 @@
  var geolocation = new ol.Geolocation();
 geolocation.setTracking(true); // here the browser may ask for confirmation
 geolocation.on('change:position', function setPosition(position) {
-  map.panTo([position.coords.latitude, position.coords.longitude]);
+  map.setView([position.coords.latitude, position.coords.longitude]);
 });
 
 // Submit query to Nominatim and zoom map to the result's extent
