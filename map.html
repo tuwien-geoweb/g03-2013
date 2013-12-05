@@ -51,7 +51,7 @@ document.head.appendChild(script);
 var geolocation = new ol.Geolocation();
 geolocation.setTracking(true); // here the browser may ask for confirmation
 geolocation.on('change:position', function() {
-  ol.Map.setView(geolocation.getPosition());
+  ol.Map.setCenter(geolocation.getPosition());
 });
 
 // Submit query to Nominatim and zoom map to the result's extent
