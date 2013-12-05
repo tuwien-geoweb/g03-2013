@@ -10,25 +10,25 @@
     </style>
 
 
-    <script src="OpenLayers.js"></script>
+    <script src="ol.js"></script>
     <script>
       function init() {
-        map = new OpenLayers.Map("basicMap");
-        var mapnik = new OpenLayers.Layer.OSM();
+        map = new ol.Map("basicMap");
+        var mapnik = new ol.Layer.OSM();
         map.addLayer(mapnik);
                         
 
         navigator.geolocation.getCurrentPosition(function(position) {       
             document.getElementById('anzeige').innerHTML="Latitude: " + position.coords.latitude + "   Longitude: " +
             position.coords.longitude + "<p>";
-            var lonLat = new OpenLayers.LonLat(position.coords.longitude,
+            var lonLat = new ol.LonLat(position.coords.longitude,
                                     position.coords.latitude)
                       .transform(
-                                  new OpenLayers.Projection("EPSG:4326"), //transform from WGS 1984
+                                  new ol.Projection("EPSG:4326"), //transform from WGS 1984
                                               map.getProjectionObject() //to Spherical Mercator Projection
                                             );
                                             
-            markers.addMarker(new OpenLayers.Marker(lonLat));
+            markers.addMarker(new ol.Marker(lonLat));
            
             map.setCenter(lonLat, 14 // Zoom level
             );
@@ -38,13 +38,13 @@
         //var mapnik = new OpenLayers.Layer.OSM();
         //map.addLayer(mapnik);
         map.setCenter(new
-        OpenLayers.LonLat(3,3) // Center of the map
+        ol.LonLat(3,3) // Center of the map
           .transform(
-            new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
-            new OpenLayers.Projection("EPSG:900913") // to Spherical Mercator Projection
+            new ol.Projection("EPSG:4326"), // transform from WGS 1984
+            new ol.Projection("EPSG:900913") // to Spherical Mercator Projection
           ), 15 // Zoom level
          );
-        var markers = new OpenLayers.Layer.Markers( "Markers" );
+        var markers = new ol.Layer.Markers( "Markers" );
         map.addLayer(markers);
                              
             
@@ -56,19 +56,15 @@
 
   <body onload="init();">
 <center>
-HTML5 geolocation: 
+
 <br>
     <div id="basicMap"></div>
-<br>HTML5 geolocation<br>
-<br>with Openstreetmap and OpenLayers<br>
-For Android Froyo,iPhone,iPAD,iPod
-<br>
+
 Your position estimated by browser geolocation API:<p>
 
 <div id="anzeige">(will be displayed here)<p></div>
-<a href="http://www.dr-bischoff.de">Andreas Bischoff</a>
 
-<br>(view source to see how it works ;-) 
+
 </center>
   </body>
 </html>
