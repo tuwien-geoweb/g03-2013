@@ -2,7 +2,7 @@
   <head>
     <title>HTML5 geolocation with Openstreetmap and OpenLayers</title>
     <style type="text/css">
-      html, body, #basicMap {
+      html, body, #map {
           width: 240;
           height: 320;
           margin: 10;
@@ -13,7 +13,7 @@
     <script src="ol.js"></script>
     <script>
       function init() {
-        map = new ol.Map("basicMap");
+        map = new ol.Map("map");
         var mapnik = new ol.Layer.OSM();
         map.addLayer(mapnik);
                         
