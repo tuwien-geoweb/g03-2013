@@ -1,0 +1,79 @@
+<html>
+  <head>
+<meta name="viewport" content="initial-scale=1.0">
+    <title>HTML5 geolocation with Openstreetmap and OpenLayers</title>
+    <style type="text/css">
+      html, body, #basicMap {
+          width: javascript(screen.width);
+          height: javascript(screen.height);
+          margin: 10;
+      }
+    </style>
+ <!-- javascript(screen.width); //-->
+  <!-- javascript(screen.height); //-->
+
+    <script src="OpenLayers.js"></script>
+    <script>
+      function init() {
+        map = new OpenLayers.Map("basicMap");
+        var mapnik = new OpenLayers.Layer.OSM();
+        var markers = new OpenLayers.Layer.Markers( "Markers" );
+        
+        map.addLayer(mapnik);
+        //map = new OpenLayers.Map("basicMap");
+        //var mapnik = new OpenLayers.Layer.OSM();
+        //map.addLayer(mapnik);
+        map.setCenter(new
+        OpenLayers.LonLat(3,3) // Center of the map
+          .transform(
+            new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+            new OpenLayers.Projection("EPSG:900913") // to Spherical Mercator Projection
+          ), 15 // Zoom level
+         );
+        //var markers = new OpenLayers.Layer.Markers( "Markers" );
+        map.addLayer(markers);
+        var posss = new OpenLayers.Marker(0,0);
+        markers.addMarker(posss);                    
+                        
+
+        navigator.geolocation.watchPosition(function(position) {       
+            document.getElementById('anzeige').innerHTML="Latitude: " + position.coords.latitude + "   Longitude: " +
+            position.coords.longitude + "<p>";
+            var lonLat = new OpenLayers.LonLat(position.coords.longitude,
+                                    position.coords.latitude)
+                      .transform(
+                                  new OpenLayers.Projection("EPSG:4326"), //transform from WGS 1984
+                                              map.getProjectionObject() //to Spherical Mercator Projection
+                                            );
+            
+            markers.clearMarkers();                                
+            markers.addMarker(new OpenLayers.Marker(lonLat));
+            //posss.lonlat(lonLat);
+            map.setCenter(lonLat, 14 // Zoom level
+            );
+           
+        });
+            
+      
+      }
+    </script>
+  </head>
+
+  <body onload="init();">
+<center>
+HTML5 geolocation: 
+<br>
+    <div id="basicMap"></div>
+<br>HTML5 geolocation<br>
+<br>with Openstreetmap and OpenLayers<br>
+For Android Froyo,iPhone,iPAD,iPod
+<br>
+Your position estimated by browser geolocation API:<p>
+<div id="anzeige">(will be displayed here)<p></div>
+<a href="http://www.dr-bischoff.de">Andreas Bischoff</a>
+
+<br>(view source to see how it works, or <a
+href="http://blog.robotnet.de/2011/03/30/html5-geolocation-with-openstreetmap-and-openlayers-for-android-iphone-ipad-and-ipod/">read my blog</a> ;-)
+</center>
+  </body>
+</html>
