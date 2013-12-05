@@ -44,10 +44,14 @@ olMap = new ol.Map({
 });
 
 //Geolocation
+var script = document.createElement('script');
+script.src = 'ol.js';
+document.head.appendChild(script);
+//Geolocation
 var geolocation = new ol.Geolocation();
 geolocation.setTracking(true); // here the browser may ask for confirmation
 geolocation.on('change:position', function() {
-  ol.Map(geolocation.getPosition());
+  ol.Map.setView(geolocation.getPosition());
 });
 
 // Submit query to Nominatim and zoom map to the result's extent
