@@ -37,7 +37,7 @@ olMap = new ol.Map({
   renderer: ol.RendererHint.CANVAS,
   layers: [osmLayer],
   view: new ol.View2D({
-    center: ol.proj.transform([16.37, 48.21], 'EPSG:4326', 'EPSG:3857'),
+    center: ol.Map.PanTo(geolocation.getPosition(),
     zoom: 14,
     maxZoom: 18
    })
