@@ -3,6 +3,7 @@
    <meta charset="utf-8">
     <link rel="stylesheet" href="resources/ol3/ol.css">
     <script src="resources/ol3/ol.js"></script>
+    <script src="http://openlayers.org/dev/OpenLayers.js"></script>
 
     <style>
       #map {
@@ -28,35 +29,36 @@
  
     <script type="text/javascript">
  
-// Base map
-var osmLayer = new ol.layer.Tile({source: new ol.source.OSM()});
-
-      /* Kartenmittelpunkt Wien Stephansplatz*/
-        var center = new ol.LonLat(16.372472,48.208417).transform(
+ var geographic = new OpenLayers.Projection("EPSG:4326");
+        var mercator = new OpenLayers.Projection("EPSG:3857");
+        /* g??ger Ausschnitt f??eb Mercator */
+        var world = new OpenLayers.Bounds(-180, -85.051128779807, 180, -85.051128779807).transform(
             geographic, mercator
         );
-
-// Map object
-olMap = new ol.Map({
-  target: 'map',
-  renderer: ol.RendererHint.CANVAS,
-  layers: [osmLayer],
-  view: new ol.View2D({
-    center: center,
-    zoom: 12,
-    maxZoom: 18
-   })
-});
-
+        /* Kartenmittelpunkt Wien Stephansplatz*/
+        var center = new OpenLayers.LonLat(16.372472,48.208417).transform(
+            geographic, mercator
+        );
+        /* Karte in das div-Element mit der id "map-id" zeichnen */
+        var map = new OpenLayers.Map({
+            div: "map",
+            projection: mercator,
+            units: "m",
+            maxExtent: world,
+            center: center,
+            zoom: 12,
+            layers: [new OpenLayers.Layer.OSM("OpenStreetMap", null, {transitionEffect: "resize"})]
+        });
+   
 
   /* aktuelle Position */
 
         /* Vector Layer für das Fadenkreuz */
-        var position = new ol.layer.Vector("aktuelle Position");
+        var position = new OpenLayers.Layer.Vector("aktuelle Position");
         map.addLayer(position);
 
         /* Geolocate Control - ermittelt die Position des Benutzers */
-        var geolocate = new ol.Control.Geolocate({
+        var geolocate = new OpenLayers.Control.Geolocate({
             geolocationOptions: {
                 enableHighAccuracy: false,
                 maximumAge: 0,
@@ -75,7 +77,7 @@ olMap = new ol.Map({
             filterPos = meinePosition.clone().transform(map.getProjectionObject(), new OpenLayers.Projection("EPSG:4326"));
             position.addFeatures([
                 /* Fadenkreuz */
-                new ol.Feature.Vector(e.point, null, {
+                new OpenLayers.Feature.Vector(e.point, null, {
                     graphicName: 'cross',
                     strokeColor: '#000',
                     strokeWidth: 2,
@@ -86,7 +88,7 @@ olMap = new ol.Map({
             /* Karte so weit hineinzoomen, dass der Ausschnitt der Genauigkeit
                der Position entspricht */
             var accuracyRadius = e.position.coords.accuracy / 2;
-            var bounds = new ol.Bounds(
+            var bounds = new OpenLayers.Bounds(
                 e.point.x - accuracyRadius, e.point.y - accuracyRadius,
                 e.point.x + accuracyRadius, e.point.y + accuracyRadius
             );
