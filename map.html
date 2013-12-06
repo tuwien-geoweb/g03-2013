@@ -25,7 +25,7 @@
                      </form>
                      
                      
-    <div id="map-id"></div>
+    <div id="map"></div>
  
     <script>
  
@@ -41,7 +41,7 @@
         );
         /* Karte in das div-Element mit der id "map-id" zeichnen */
         var map = new OpenLayers.Map({
-            div: "map-id",
+            div: "map",
             projection: mercator,
             units: "m",
             maxExtent: world,
