@@ -50,7 +50,7 @@ olMap = new ol.Map({
 var geolocation = new ol.Geolocation();
 geolocation.setTracking(true); // here the browser may ask for confirmation
 geolocation.on('change:position', function setPosition(position) {
-  map.setView([position.coords.latitude, position.coords.longitude]);
+  map.ZoomTo([position.coords.latitude, position.coords.longitude]);
 });
 
 
