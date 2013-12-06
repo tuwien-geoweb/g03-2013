@@ -31,28 +31,69 @@
 // Base map
 var osmLayer = new ol.layer.Tile({source: new ol.source.OSM()});
 
+      /* Kartenmittelpunkt Wien Stephansplatz*/
+        var center = new ol.LonLat(16.372472,48.208417).transform(
+            geographic, mercator
+        );
+
 // Map object
 olMap = new ol.Map({
   target: 'map',
   renderer: ol.RendererHint.CANVAS,
   layers: [osmLayer],
   view: new ol.View2D({
-    center: ol.proj.transform([16.37, 48.21], 'EPSG:4326', 'EPSG:3857'),
+    center: center,
     zoom: 12,
     maxZoom: 18
    })
 });
 
-//Geolocation
-var script = document.createElement('script');
-script.src = 'ol.js';
-document.head.appendChild(script);
-//Geolocation
-var geolocation = new ol.Geolocation();
-geolocation.setTracking(true); // here the browser may ask for confirmation
-geolocation.on('change:position', function() {
-  ol.Map.PanTo(geolocation.getPosition());
-});
+
+  /* aktuelle Position */
+
+        /* Vector Layer für das Fadenkreuz */
+        var position = new ol.layer.Vector("aktuelle Position");
+        map.addLayer(position);
+
+        /* Geolocate Control - ermittelt die Position des Benutzers */
+        var geolocate = new ol.Control.Geolocate({
+            geolocationOptions: {
+                enableHighAccuracy: false,
+                maximumAge: 0,
+                timeout: 7000
+            },
+            eventListeners: {
+                locationupdated: onLocationUpdate
+            }
+        });
+        map.addControl(geolocate);
+   
+        /* Funktion zum Zentrieren der Karte auf Benutzer-Position */
+        function onLocationUpdate(e) {
+            position.removeAllFeatures();
+            meinePosition = e.point;
+            filterPos = meinePosition.clone().transform(map.getProjectionObject(), new OpenLayers.Projection("EPSG:4326"));
+            position.addFeatures([
+                /* Fadenkreuz */
+                new ol.Feature.Vector(e.point, null, {
+                    graphicName: 'cross',
+                    strokeColor: '#000',
+                    strokeWidth: 2,
+                    fillOpacity: 0,
+                    pointRadius: 10
+                })
+            ]);
+            /* Karte so weit hineinzoomen, dass der Ausschnitt der Genauigkeit
+               der Position entspricht */
+            var accuracyRadius = e.position.coords.accuracy / 2;
+            var bounds = new ol.Bounds(
+                e.point.x - accuracyRadius, e.point.y - accuracyRadius,
+                e.point.x + accuracyRadius, e.point.y + accuracyRadius
+            );
+            map.zoomToExtent(bounds);
+			
+			laden();
+			}
 
 // Submit query to Nominatim and zoom map to the result's extent
 var form = document.forms[0];
