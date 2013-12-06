@@ -25,9 +25,9 @@
                      </form>
                      
                      
-    <div id="map"></div>
+    <div id="map-id"></div>
  
-    <script type="text/javascript">
+    <script>
  
  var geographic = new OpenLayers.Projection("EPSG:4326");
         var mercator = new OpenLayers.Projection("EPSG:3857");
@@ -41,7 +41,7 @@
         );
         /* Karte in das div-Element mit der id "map-id" zeichnen */
         var map = new OpenLayers.Map({
-            div: "map",
+            div: "map-id",
             projection: mercator,
             units: "m",
             maxExtent: world,
