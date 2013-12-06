@@ -31,6 +31,11 @@
 // Base map
 var osmLayer = new ol.layer.Tile({source: new ol.source.OSM()});
 
+        /* Kartenmittelpunkt Wien Stephansplatz*/
+        var center = new ol.LonLat(16.372472,48.208417).transform(
+            geographic, mercator
+        );
+
 
 // Map object
 olMap = new ol.Map({
@@ -38,7 +43,7 @@ olMap = new ol.Map({
   renderer: ol.RendererHint.CANVAS,
   layers: [osmLayer],
   view: new ol.View2D({
-    center: ol.proj.transform([16.37, 48.21], 'EPSG:4326', 'EPSG:3857'),
+    center: center,
     zoom: 10,
     maxZoom: 18
    })
@@ -49,7 +54,7 @@ olMap = new ol.Map({
 var geolocation = new ol.Geolocation();
 geolocation.setTracking(true); // here the browser may ask for confirmation
 geolocation.on('change:position', function setPosition(position) {
-  map.setView([position.coords.latitude, position.coords.longitude]);
+  olMap.setView([position.coords.latitude, position.coords.longitude]);
 });
 
 
