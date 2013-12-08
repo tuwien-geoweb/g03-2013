@@ -24,11 +24,6 @@ olMap = new ol.Map({
        })
 });
 
-var geolocation = new ol.Geolocation();
-geolocation.bindTo('projection', map.getView());
-
-var track = new ol.dom.Input(document.getElementById('show'));
-track.bindTo('checked', wmsLayer, 'tracking');
 
 // Add behaviour to dropdown
 var topics = document.getElementById('topics');
