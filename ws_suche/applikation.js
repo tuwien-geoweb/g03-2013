@@ -10,17 +10,25 @@ var wmsLayer = new ol.layer.Image({
   opacity: 0
 });
 
+
 // Map object
 olMap = new ol.Map({
   target: 'map',
   renderer: ol.RendererHint.CANVAS,
   layers: [osmLayer, wmsLayer],
   view: new ol.View2D({
-    center: ol.proj.transform([16.37, 48.21], 'EPSG:4326', 'EPSG:3857'),
+    center: [0 , 0]
+    //ol.proj.transform([16.37, 48.21], 'EPSG:4326', 'EPSG:3857'),
     zoom: 12,
     maxZoom: 18
        })
 });
+
+var geolocation = new ol.Geolocation();
+geolocation.bindTo('projection', map.getView());
+
+var track = new ol.dom.Input(document.getElementById('show'));
+track.bindTo('checked', wmsLayer, 'tracking');
 
 // Add behaviour to dropdown
 var topics = document.getElementById('topics');
