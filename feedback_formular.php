@@ -21,7 +21,6 @@
 
 <div id="logoall">
 <div id="logo">
-        <h1><a href="../startseite.html">Wohnstandortsuche Wien</a></h1>
 </div>
 </div>
 <div id="header">
