@@ -92,3 +92,32 @@ form.onsubmit = function(evt) {
   xhr.send();
   evt.preventDefault();
 };
+
+
+
+//Checkboxen
+var citybike = new ol.layer.Vector({
+          source: new ol.source.Vector({
+            url: 'http://student.ifip.tuwien.ac.at/geoserver/g03_2013/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=g03_2013:CITYBIKEOGD&maxFeatures=50&outputFormat=json',
+            parser: new ol.parser.GeoJSON()
+          }), //style laut Mail und Seite hinzugefügt, Punkte verschwinden aber komplett
+            style: new ol.style.Style({
+   
+                  symbolizers: [
+                    new ol.style.Shape({
+                      fill: new ol.style.Fill({
+                        color: '#B40404'
+                      }),
+                      size: 10,
+                      stroke: new ol.style.Stroke({
+                        color: '#610B0B'
+                      })
+                    })
+                  ]
+            })
+          })
+
+
+if (document.input_checkbox.citybike.checked == true) {
+ map.addLayer(citybike);  
+}
