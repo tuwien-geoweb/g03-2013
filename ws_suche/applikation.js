@@ -119,5 +119,6 @@ var citybike = new ol.layer.Vector({
 
 
 if (document.input_checkbox.citybike.checked == true) {
- map.addLayer(citybike);  
+ map.addLayer(citybike);
+ 
 }
