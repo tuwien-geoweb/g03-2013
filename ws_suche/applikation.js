@@ -5,9 +5,9 @@ var osmLayer = new ol.layer.Tile({source: new ol.source.OSM()});
 var wmsLayer = new ol.layer.Image({
   source: new ol.source.ImageWMS({
     url: '/geoserver/wms',
-    params: {'LAYERS': 'g03_2013:CITYBIKEOGD'}
+    params: {'LAYERS': 'g03_2013:g03_2013_normalized'}
   }),
-  opacity: 0
+  opacity: 0.6
 });
 
 
@@ -34,7 +34,7 @@ topics.onchange = function() {
 
 // Load variables into dropdown
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "data/DataDict.txt");
+xhr.open("GET", "../data/DataDict.txt");
 xhr.onload = function() {
   var lines = xhr.responseText.split('\n');
   // We start at line 3 - line 1 is column names, line 2 is not a variable
