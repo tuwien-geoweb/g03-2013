@@ -2,8 +2,7 @@
   <head>
    <meta charset="utf-8">
     <link rel="stylesheet" href="resources/ol3/ol.css">
-    <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="../resources/bootstrap/css/bootstrap-responsive.min.css" type="text/css">
+
     
 
     <style>
@@ -12,13 +11,7 @@
         width: 100%;
       }
       
-      .icon-flag {
-        font-size: 22px;
-        text-shadow: 2px 2px 3px #013;
-      }
-      .tooltip-inner {
-        white-space: nowrap;
-      }
+
     </style>
     
     <title>Exercise</title>
@@ -34,34 +27,9 @@
                      </form>
                      
                      
-    <div class="container-fluid">
-
-      <div class="row-fluid">
-        <div class="span12">
-          <div id="map" class="map"></div>
-        </div>
-      </div>
-
-      <div class="row-fluid">
-
-        <div class="span8">
-          <h4 id="title">Geolocation example</h4>
-          <label class="checkbox" for="track">
-            <input id="track" type="checkbox"/>track position
-          </label>
-          <p>position accuracy : <code id="accuracy"></code></p>
-          <p>altitude : <code id="altitude"></code></p>
-          <p>altitude accuracy : <code id="altitudeAccuracy"></code></p>
-          <p>heading : <code id="heading"></code></p>
-          <p>speed : <code id="speed"></code></p>
-
-
-
-    </div>
+                     
+    <div id="map"></div>
     
-<script src="resources/bootstrap/css/jquery.min.js" type="text/javascript"></script>
-<script src="resources/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="resources/example-behaviour.js" type="text/javascript"></script>
 
     <script src="resources/ol3/ol.js">
  
@@ -82,34 +50,6 @@ var map = new ol.Map({
 
 var geolocation = new ol.Geolocation();
 geolocation.bindTo('projection', map.getView());
-
-var track = new ol.dom.Input(document.getElementById('track'));
-track.bindTo('checked', geolocation, 'tracking');
-
-geolocation.on('change', function() {
-  $('#accuracy').text(geolocation.getAccuracy() + ' [m]');
- 
-});
-
-var marker = new ol.Overlay({
-  element: /** @type {Element} */ ($('<i/>').addClass('icon-flag').get(0)),
-  positioning: ol.OverlayPositioning.BOTTOM_LEFT,
-  stopEvent: false
-});
-map.addOverlay(marker);
-// bind the marker position to the device location.
-marker.bindTo('position', geolocation);
-
-geolocation.on('change:accuracy', function() {
-  $(marker.getElement()).tooltip({
-    title: this.getAccuracy() + 'm from this point'
-  });
-});
-geolocation.on('error', function(error) {
-  var info = document.getElementById('info');
-  info.innerHTML = error.message;
-  info.style.display = '';
-});
 
 
 // Submit query to Nominatim and zoom map to the result's extent
