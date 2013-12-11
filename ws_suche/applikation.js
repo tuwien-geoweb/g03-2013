@@ -96,27 +96,14 @@ form.onsubmit = function(evt) {
 
 
 //Checkbox Citybike
-var citybike = new ol.layer.Vector({
-          source: new ol.source.Vector({
-            url: 'http://student.ifip.tuwien.ac.at/geoserver/g03_2013/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=g03_2013:CITYBIKEOGD&maxFeatures=50&outputFormat=json',
-            parser: new ol.parser.GeoJSON()
-          }),
-            style: new ol.style.Style({
-   
-                  symbolizers: [
-                    new ol.style.Shape({
-                      fill: new ol.style.Fill({
-                        color: '#B40404'
-                      }),
-                      size: 10,
-                      stroke: new ol.style.Stroke({
-                        color: '#610B0B'
-                      })
-                    })
-                  ]
-            })
-          })
-
+var citybike = new ol.layer.Image({
+  source: new ol.source.ImageWMS({
+    url: '/geoserver/wms',
+    params: {'LAYERS': 'g03_2013:CITYBIKEOGD'}
+  }),
+  opacity: 0
+});
+ 
 
 if (document.input_checkbox.citybike.checked == true) {
  map.addLayer(citybike);
