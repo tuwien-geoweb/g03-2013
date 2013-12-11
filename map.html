@@ -42,7 +42,7 @@ olMap = new ol.Map({
   renderer: ol.RendererHint.CANVAS,
   layers: [osmLayer],
   view: new ol.View2D({
-    center: [0, 0],
+    center: geolocation,
     zoom: 12,
     maxZoom: 18
    })
