@@ -59,7 +59,7 @@
                          </tr>
                          <tr><td>Ihre Koordinaten </td>
                                  <td><input type="text" id = "latitude" name="latitude" size="20" placeholder="geographische Breite eingeben"/>
-                                 <input type="text" id = "longitude" name="longitude" size="20" placeholder="geographische L寧e eingeben"/></td>
+                                 <input type="text" id = "longitude" name="longitude" size="20" placeholder="geographische Länge eingeben"/></td>
                         </tr>
                  </table>
                 Feedback: <br />
@@ -68,7 +68,7 @@
                          <input type="checkbox" name="team" checked="checked" value="ON" />
                          Ich bin Mitglied des geoweb-Teams <br /><br />
                          <input type="submit" value="Abschicken">
-                         <input type="reset" value="Zur��etzen"> <br /><br />
+                         <input type="reset" value="Zurücksetzen"> <br /><br />
                          Ihr Feedback wird per E-Mail an die Autoren/innen zugestellt<br>
                          und in der Projekt-Datenbank gespeichert.<br />
                         </form>
