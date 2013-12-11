@@ -21,6 +21,7 @@
 
 <div id="logoall">
 <div id="logo">
+        <h1><a href="../startseite.html">Wohnstandortsuche Wien</a></h1>
 </div>
 </div>
 <div id="header">
@@ -59,7 +60,7 @@
                          </tr>
                          <tr><td>Ihre Koordinaten </td>
                                  <td><input type="text" id = "latitude" name="latitude" size="20" placeholder="geographische Breite eingeben"/>
-                                 <input type="text" id = "longitude" name="longitude" size="20" placeholder="geographische L寧e eingeben"/></td>
+                                 <input type="text" id = "longitude" name="longitude" size="20" placeholder="geographische Länge eingeben"/></td>
                         </tr>
                  </table>
                 Feedback: <br />
@@ -68,7 +69,7 @@
                          <input type="checkbox" name="team" checked="checked" value="ON" />
                          Ich bin Mitglied des geoweb-Teams <br /><br />
                          <input type="submit" value="Abschicken">
-                         <input type="reset" value="Zur��etzen"> <br /><br />
+                         <input type="reset" value="Zurücksetzen"> <br /><br />
                          Ihr Feedback wird per E-Mail an die Autoren/innen zugestellt<br>
                          und in der Projekt-Datenbank gespeichert.<br />
                         </form>
@@ -90,7 +91,10 @@
       var map = new ol.Map({
       target: 'map',
       renderer: ol.RendererHint.CANVAS,
-    
+        view: new ol.View2D({
+        center: ol.proj.transform([16.37, 48.21], 'EPSG:4326', 'EPSG:3857'),
+        zoom: 11
+      }),
       layers: [
         new ol.layer.Tile({
           source: new ol.source.OSM()
@@ -99,37 +103,16 @@
           source: new ol.source.Vector({
             url: 'http://student.ifip.tuwien.ac.at/geoserver/g03_2013/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=g03_2013:feedback&maxFeatures=50&outputFormat=json',
             parser: new ol.parser.GeoJSON()
-          }),
-            style: new ol.style.Style({
-              rules: [
-                new ol.style.Rule({
-                  filter: 'renderIntent("selected")',
-                  symbolizers: [
-                    new ol.style.Shape({
-                      fill: new ol.style.Fill({
-                        color: '#B40404'
-                      }),
-                      size: 10,
-                      stroke: new ol.style.Stroke({
-                        color: '#610B0B'
-                      })
-                    })
-                  ]
-                })
-              ],
-            })
           })
-        ], 
-        view: new ol.View2D({
-        center: ol.proj.transform([16.37, 48.21], 'EPSG:4326', 'EPSG:3857'),
-        zoom: 11
-      }),       
-   }) ;
+       })
+        ]
+
+      });
     </script>
 
 <div id="unten">
         <div id="unten1">
-        <p id="fusszeile">ɠ2013 Gruppe 3, Webbasierte Geoinformation im Planungsprozess</a></p>
+        <p id="fusszeile">© 2013 Gruppe 3, Webbasierte Geoinformation im Planungsprozess</a></p>
         </div>
 </div>
 
