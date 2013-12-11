@@ -95,12 +95,12 @@ form.onsubmit = function(evt) {
 
 
 
-//Checkboxen
+//Checkbox Citybike
 var citybike = new ol.layer.Vector({
           source: new ol.source.Vector({
             url: 'http://student.ifip.tuwien.ac.at/geoserver/g03_2013/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=g03_2013:CITYBIKEOGD&maxFeatures=50&outputFormat=json',
             parser: new ol.parser.GeoJSON()
-          }), //style laut Mail und Seite hinzugefügt, Punkte verschwinden aber komplett
+          }),
             style: new ol.style.Style({
    
                   symbolizers: [
