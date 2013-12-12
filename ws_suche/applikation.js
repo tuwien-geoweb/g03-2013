@@ -104,7 +104,7 @@ var citybike = new ol.layer.Image({
 });
  
 
-if (document.input_checkbox.citybike.checked == true) {
+if (document.input_checkbox.citybike.checked = true) {
  map.addLayer(citybike);//???
  
 }
