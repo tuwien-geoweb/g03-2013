@@ -100,12 +100,11 @@ var citybike = new ol.layer.Image({
   source: new ol.source.ImageWMS({
     url: '/geoserver/wms',
     params: {'LAYERS': 'g03_2013:CITYBIKEOGD'}
-  }),
-  opacity: 0
+  })
 });
  
 
 if (document.input_checkbox.citybike.checked == true) {
- map.addOverlay(citybike);
+ map.addLayer(citybike);//???
  
 }
