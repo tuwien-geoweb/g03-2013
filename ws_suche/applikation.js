@@ -5,7 +5,7 @@ var osmLayer = new ol.layer.Tile({source: new ol.source.OSM()});
 var wmsLayer = new ol.layer.Image({
   source: new ol.source.ImageWMS({
     url: '/geoserver/wms',
-    params: {'LAYERS': 'g03_2013:OEFFLINIENOGDLine'}
+    params: {'LAYERS': 'g03_2013:g03_2013_bev'}
   }),
   opacity: 0.6
 });
@@ -95,16 +95,4 @@ form.onsubmit = function(evt) {
 
 
 
-//Checkbox Citybike
-var citybike = new ol.layer.Image({
-  source: new ol.source.ImageWMS({
-    url: '/geoserver/wms',
-    params: {'LAYERS': 'g03_2013:CITYBIKEOGD'}
-  })
-});
- 
 
-if (document.input_checkbox.citybike.checked = true) {
- map.addLayer(citybike);//???
- 
-}
