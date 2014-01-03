@@ -24,6 +24,14 @@ olMap = new ol.Map({
 });
 
 
+//Geolocation
+var geolocation = new ol.Geolocation();
+geolocation.setTracking(true); // here the browser may ask for confirmation
+geolocation.on('change:position', function setPosition() {
+  olMap.getView().setCenter(ol.proj.transform(geolocation.getPosition(),"EPSG:4326", "EPSG:3857"));
+});
+
+
 // Add behaviour to dropdown
 var topics = document.getElementById('topics');
 topics.onchange = function() {
