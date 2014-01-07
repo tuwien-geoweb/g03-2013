@@ -18,6 +18,38 @@ var cityBikeLayer = new ol.layer.Image({
   opacity: 0.6
 });
 
+var fahrradabstell = new ol.layer.Image({
+  source: new ol.source.ImageWMS({
+    url: '/geoserver/wms',
+    params: {'LAYERS': 'g03_2013:FAHRRADABSTELLANLAGEOGD'}
+  }),
+  opacity: 0.6
+});
+
+var trinkbrunnen = new ol.layer.Image({
+  source: new ol.source.ImageWMS({
+    url: '/geoserver/wms',
+    params: {'LAYERS': 'g03_2013:TRINKBRUNNENOGD'}
+  }),
+  opacity: 0.6
+});
+
+var haltestellen = new ol.layer.Image({
+  source: new ol.source.ImageWMS({
+    url: '/geoserver/wms',
+    params: {'LAYERS': 'g03_2013:HALTESTELLEWLOGD'}
+  }),
+  opacity: 0.6
+});
+
+var oefflinien = new ol.layer.Image({
+  source: new ol.source.ImageWMS({
+    url: '/geoserver/wms',
+    params: {'LAYERS': 'g03_2013:OEFFLINIENOGDLine'}
+  }),
+  opacity: 0.6
+});
+
 
 // Map object
 olMap = new ol.Map({
@@ -114,6 +146,34 @@ document.getElementById('featureCityBike').onclick = function(e){
     olMap.addLayer(cityBikeLayer);
   }else{
     olMap.removeLayer(cityBikeLayer);
+  }
+};
+document.getElementById('featureAbstell').onclick = function(e){
+  if(this.checked==1){
+    olMap.addLayer(fahrradabstell);
+  }else{
+    olMap.removeLayer(fahrradabstell);
+  }
+};
+document.getElementById('featureBrunnen').onclick = function(e){
+  if(this.checked==1){
+    olMap.addLayer(trinkbrunnen);
+  }else{
+    olMap.removeLayer(trinkbrunnen);
+  }
+};
+document.getElementById('featureHaltestellen').onclick = function(e){
+  if(this.checked==1){
+    olMap.addLayer(haltestellen);
+  }else{
+    olMap.removeLayer(haltestellen);
+  }
+};
+document.getElementById('featureOeffi').onclick = function(e){
+  if(this.checked==1){
+    olMap.addLayer(oefflinien);
+  }else{
+    olMap.removeLayer(oefflinien);
   }
 };
 
