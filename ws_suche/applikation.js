@@ -110,7 +110,6 @@ form.onsubmit = function(evt) {
 };
 
 document.getElementById('featureCityBike').onclick = function(e){
-  console.log(this.checked);
   if(this.checked==1){
     olMap.addLayer(cityBikeLayer);
   }else{
