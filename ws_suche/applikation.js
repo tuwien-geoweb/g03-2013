@@ -10,12 +10,20 @@ var wmsLayer = new ol.layer.Image({
   opacity: 0.6
 });
 
+var cityBikeLayer = new ol.layer.Image({
+  source: new ol.source.ImageWMS({
+    url: '/geoserver/wms',
+    params: {'LAYERS': 'g03_2013:CITYBIKEOGD'}
+  }),
+  opacity: 0.6
+});
+
 
 // Map object
 olMap = new ol.Map({
   target: 'map',
   renderer: ol.RendererHint.CANVAS,
-  layers: [osmLayer, wmsLayer],
+  layers: [osmLayer, wmsLayer, cityBikeLayer],
   view: new ol.View2D({
     center: ol.proj.transform([16.37, 48.21], 'EPSG:4326', 'EPSG:3857'),
     zoom: 12,
@@ -100,7 +108,5 @@ form.onsubmit = function(evt) {
   xhr.send();
   evt.preventDefault();
 };
-
-
 
 
