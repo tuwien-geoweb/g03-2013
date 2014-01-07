@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../resources/ol3/ol.css">
     <script src="jquery.js"></script>
     <script src="../resources/ol3/ol.js"></script>
+    <script src="../resources/ol3/OpenLayers.js"></script>
     <!-- Our Application -->
     <style>
       html, body, #map {
@@ -87,6 +88,51 @@
       float: right;
     }
     
+ 
+.olControlLayerSwitcher {
+    position: absolute;
+    top: 25px;
+    right: 0;
+    width: 20em;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin-top: 3px;
+    margin-left: 3px;
+    margin-bottom: 3px;
+    font-size: smaller;
+    color: white;
+    background-color: transparent;
+}
+
+.olControlLayerSwitcher .layersDiv {
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+    background-color: darkblue;
+}
+
+.olControlLayerSwitcher .layersDiv .baseLbl,
+.olControlLayerSwitcher .layersDiv .dataLbl {
+    margin-top: 3px;
+    margin-left: 3px;
+    margin-bottom: 3px;
+}
+
+.olControlLayerSwitcher .layersDiv .baseLayersDiv,
+.olControlLayerSwitcher .layersDiv .dataLayersDiv {
+    padding-left: 10px;
+}
+
+.olControlLayerSwitcher .maximizeDiv,
+.olControlLayerSwitcher .minimizeDiv {
+    width: 18px;
+    height: 18px;
+    top: 5px;
+    right: 0;
+    cursor: pointer;
+}
+ 
   
     </style>
   </head>
@@ -123,14 +169,15 @@
      <form class="input_checkbox">
   <p>Weitere Layer auswählen:</p>
   <p>
-    <input type="checkbox" name="citybike" value="citybike"> City Bike Standorte<br>
+     <!-- <input type="checkbox" name="citybike" value="citybike"> City Bike Standorte<br>
     <input type="checkbox" name="fahrradabstell" value="fahrradabstell"> Fahrradabstellanlagen<br>
     <input type="checkbox" name="trinkbrunne" value="trinkbrunnen"> Trinkbrunnen<br>
     <input type="checkbox" name="haltestellen" value="haltestellen"> Haltestellen Wiener Linien<br>
     <input type="checkbox" name="sportstaetten" value="sportstaetten"> Sportstätten<br>
     <input type="checkbox" name="oefflinien" value="oefflinien"> Öffentliche Linien<br>
     <input type="checkbox" name="volkshochschule" value="volkshochschule"> Volkshochschulen<br>
-  </p>
+  </p>-->
+  
 </form> 
       
     <script type="text/javascript" src="applikation.js"></script>
