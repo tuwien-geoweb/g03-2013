@@ -24,30 +24,6 @@ olMap = new ol.Map({
 });
 
 
-function init(){
-            map.addControl(new OpenLayers.Control.Navigation());
-            map.addControl(new OpenLayers.Control.LayerSwitcher({'div':OpenLayers.Util.getElement('layerswitcher')}));
-            
-            var jpl_wms = new OpenLayers.Layer.WMS( "Haltestellen",
-            http:"//student.ifip.tuwien.ac.at/geoserver/g03_2013/wms?service=WMS&version=1.1.0&request=GetMap&layers=g03_2013:HALTESTELLEWLOGD&styles=&bbox=16.19862001168549,48.122380065848354,16.54939001353065,48.311100066016664&width=613&height=330&srs=EPSG:4326&format=application/openlayers", 
-            {layers: "Haltestellen"}, {'isBaseLayer': false});
-
-            var dm_wms = new OpenLayers.Layer.WMS( "DM Solutions Demo",
-            "http://www2.dmsolutions.ca/cgi-bin/mswms_gmap",
-            {layers: "bathymetry,land_fn,park,drain_fn,drainage," +
-                         "prov_bound,fedlimit,rail,road,popplace",
-            transparent: "true", format: "image/png" });
-
-            jpl_wms.setVisibility(false);
-            dm_wms.setVisibility(false);
-
-            map.addLayers([jpl_wms, dm_wms]);
-           
-        }
-            
-
-
-
 //Geolocation
 var geolocation = new ol.Geolocation();
 geolocation.setTracking(true); // here the browser may ask for confirmation
