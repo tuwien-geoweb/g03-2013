@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Wohnstandortsuche Wien</title>
+<meta name="keywords" content="Wohnstandortsuche" />
+<meta name="description" content="Wohnstandortsuche Gruppe 3" />
+<link href="../style.css" rel="stylesheet" type="text/css" />
+ <!-- Bootstrap -->
+    <link rel="stylesheet" href="../app/resources/bootstrap/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../app/resources/bootstrap/css/bootstrap-theme.min.css" type="text/css">
+    <!-- OpenLayers -->
+    <link rel="stylesheet" href="../app/resources/ol3/ol.css">
+    <script src="../app/resources/ol3/ol.js"></script>
+    <!-- Our Application -->
+    <style>
+      #map {
+          padding-top: -20px;
+          height: 400px;
+          width: 840;
+        }
+      .overlay {
+          position: absolute;
+          z-index: 1;
+          left: 10px;
+          bottom: 10px;
+          opacity: 0.6;
+        }
+      .ol-popup {
+          display: none;
+          position: absolute;
+          background-color: white;
+          -moz-box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+          -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+          filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+          padding: 15px;
+          border-radius: 10px;
+          border: 1px solid #17444c;
+          bottom: 12px;
+          left: -50px;
+          width: 250px;
+          height: 100px;
+        }
+    .ol-popup:after, .ol-popup:before {
+          top: 100%;
+          border: solid transparent;
+          content: " ";
+          height: 0;
+          width: 0;
+          position: absolute;
+          pointer-events: none;
+        }
+    .ol-popup:after {
+          border-top-color: white;
+          border-width: 10px;
+          left: 48px;
+          margin-left: -10px;
+        }
+    .ol-popup:before {
+          border-top-color: #17444c;
+          border-width: 11px;
+          left: 48px;
+          margin-left: -11px;
+        }
+    .ol-popup .close {
+          position: absolute;
+          top: 2px;
+          right: 8px;
+        }
+    .ol-popup iframe {
+      width: 500px;
+        height: 120px;
+        border: 0;
+      }
+      
+     .navbar {
+      width: 840px;
+      height: 130px;
+      padding-top: 30px;
+     } 
+     
+          
+      .navbar-form .input-group {
+      width: 400px;
+      padding-top: 0px;
+      padding-right: 20px;
+      float: right;
+       }
+       
+    .navbar-form .form-group {
+      width: 400px;
+      padding-top: 0px;
+      padding-right: 20px;
+      float: right;
+    }
+    
+      .navbar-inverse {
+      width: 840px;
+    }
+    
+    .navbar-brand {
+    color: #FFFFFF;
+    padding-top:0px;
+    }
+    
+    </style>
+</head>
+<body>
+
+<div id="logoall">
+<div id="logo"></div>
+</div>
+<div id="header">
+	<div id="menu">
+		<ul>
+			<li class="button"><a href="../startseite.html">Startseite</a></li>
+			<li class="button"><a href="dasprojekt.html">Das Projekt</a></li>
+			<li class="button"><a href="applikation.html">Applikation zur Wohnstandortsuche</a></li>
+			<li class="button"><a href="../intranet/intern.html">Intern</a></li>
+			<li class="button"><a href="team.html">Team</a></li>
+			<li class="button last"><a href="impressum.html">Impressum</a></li>
+		</ul>
+	</div>
+</div>
+
+
+<div id="page">
+
+	<div id="bodystyle">
+		<div class="content">
+			<div class="entry">
+				<nav class="navbar navbar-inverse " role="navigation">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="applikation.html">Wohnstandortsuche Wien</a>
+      </div>
+      <form class="navbar-form navbar-right">
+        <div class="form-group">
+          <select id="topics" class="form-control"></select>
+        </div>
+        <div class="input-group">
+        <input type="text" class="form-control" name="query" placeholder="Geben Sie eine Adresse ein.">
+        <span class="input-group-btn">
+           <button class="btn btn-default" type="submit">
+            Suchen
+          </button>
+        </span>
+       </div>
+    </form>
+    </nav>
+    <div id="map">
+    <!-- <img class="overlay img-rounded" src="/geoserver/g03_2013/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&STRICT=false&style=g03_2013_stddev">
+          Bildoverlay Legende auskommentiert-->
+           <div id="popup" class="ol-popup">
+              <button id="popup-closer" class="close">&times;</button>
+              <div id="popup-content"></div>
+          </div>
+      </div>
+      
+     <form class="input_checkbox">
+  <p>Weitere Layer auswählen:</p>
+  <p>
+<input type="checkbox" name="citybike" value="citybike" id="featureCityBike"> City Bike Standorte<br>
+    <input type="checkbox" name="fahrradabstell" value="fahrradabstell" id="featureAbstell"> Fahrradabstellanlagen<br>
+    <input type="checkbox" name="trinkbrunne" value="trinkbrunnen" id="featureBrunnen"> Trinkbrunnen<br>
+    <input type="checkbox" name="haltestellen" value="haltestellen" id="featureHaltestellen"> Haltestellen Wiener Linien<br>
+    <input type="checkbox" name="oefflinien" value="oefflinien" id="featureOeffi"> Öffentliche Linien<br>
+  </p>
+  
+</form>
+    <script src="../app/ws_suche/applikation.js"></script>
+
+			</div>
+		</div>
+	</div>
+
+		<div style="clear: both;">&nbsp;</div>
+</div>
+
+
+
+
+
+<div id="unten">
+	<div id="unten1">
+	<p id="fusszeile">© 2013 Gruppe 3, Webbasierte Geoinformation im Planungsprozess</p>
+	</div>
+</div>
+
+</body>
+</html>
