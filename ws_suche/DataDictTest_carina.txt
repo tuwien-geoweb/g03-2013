@@ -1,0 +1,6 @@
+Data_Item                                             Item_Description                                                    Unit  Decimal  US_Total    Minimum     Maximum   Source
+DISTRICT_C           Postleitzahl Bezirk
+ANTEIL_male          Anteil der männlichen Bevölkerung an der Gesamtbevölkerung des Bezirkes                              PCT    0      313914040          71   313914040  OGDWIEN
+ANTEIL_female        Anteil der weiblichen Bevölkerung an der Gesamtbevölkerung des Bezirkes                              PCT    0      308747508          82   308747508  OGDWIEN
+ANTEIL_austrians     Anteil der in österreich geborenen Bevölkerung an der Gesamtbevölkerung des Bezirkes                 PCT    1            1.7       -18.1        25.6  OGDWIEN
+ANTEIL_foreigners    Anteil der im Ausland geborenen Bevölkerung an der Gesamtbevölkerung des Bezirkes                    PCT    0      308745538          82   308745538  OGDWIEN
