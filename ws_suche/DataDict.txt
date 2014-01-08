@@ -1,8 +1,8 @@
 Data_Item                                             Item_Description                                             UnitDecimal  US_Total    Minimum     Maximum     Source
-DISTRICT_C  Postleitzahl Bezirk
+DISTRICT_C           Postleitzahl Bezirk
 Bev_Austrians_female Resident total population estimate (July 1) 2012                                                         ABS    0      313914040          71   313914040  CENSUS
-PST040210 Resident total population, estimates base (April 1) 2010                                                 ABS    0      308747508          82   308747508  CENSUS
-PST120212 Resident total population, percent change - April 1, 2010 to July 1, 2012                                PCT    1            1.7       -18.1        25.6  CENSUS
-POP010210 Resident population (April 1 - complete count) 2010                                                      ABS    0      308745538          82   308745538  CENSUS
-AGE135212 Resident population under 5 years, percent, 2012                                                         PCT    1            6.4         0.0        13.3  CENSUS
-AGE295212 Resident population under 18 years, percent, 2012                                                        PCT    1           23.5         0.0        41.4  CENSUS
+PST040210            Resident total population, estimates base (April 1) 2010                                                 ABS    0      308747508          82   308747508  CENSUS
+PST120212            Resident total population, percent change - April 1, 2010 to July 1, 2012                                PCT    1            1.7       -18.1        25.6  CENSUS
+POP010210            Resident population (April 1 - complete count) 2010                                                      ABS    0      308745538          82   308745538  CENSUS
+AGE135212            Resident population under 5 years, percent, 2012                                                         PCT    1            6.4         0.0        13.3  CENSUS
+AGE295212            Resident population under 18 years, percent, 2012                                                        PCT    1           23.5         0.0        41.4  CENSUS
