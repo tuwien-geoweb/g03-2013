@@ -1,8 +1,8 @@
-Data_Item	Item_Description	Unit	Decimal	VIE_Total	Minimum	Maximum	Source
-DISTRICT_C	Postleitzahl Bezirk						
-Bev_Austrians_female	Weibliche Bevölkerung Österreichs	ABS	0	592454	5492	63980	G03 Database 2
-Bev_Foreigners_female	Weibliche ausländische Bevölkerung Österreichs	ABS	0	322184	3246	37599	G03 Database 2
-ANTEIL_male	Anteil Männer	PCT	1	0,479169216	0,456423361	0,495786761	G03 Database 2
-ANTEIL_female	Anteil Frauen	PCT	1	0,520830784	0,504213239	0,543576639	G03 Database 2
-ANTEIL_austrians	Anteil ÖsterreicherInnen	PCT	1	0,640205278	0,504493677	0,77139902	G03 Database 2
-ANTEIL_foreigners	Anteil AusländerInnen	PCT	1	0,359794722	0,22860098	0,495506323	G03 Database 2
+Data_Item                                             Item_Description                                             UnitDecimal  VIE_Total    Minimum     Maximum     Source
+DISTRICT_C  Postleitzahl Bezirk
+Bev_Austrians_female Weibliche Bevölkerung Österreichs                                                         ABS    0      592454          5492   63980  G03 Database 2
+Bev_Foreigners_female Weibliche ausländische Bevölkerung Österreichs                                                 ABS    0      322184          3246   37599  G03 Database 2
+ANTEIL_male Anteil Männer                                PCT    1            0,479169216232183       0,45642336051184        0,495786760679994  G03 Database 2
+ANTEIL_female Anteil Frauen                                                      PCT    1      0,520830783767817          0,504213239320006   0,54357663948816  G03 Database 2
+ANTEIL_austrians Anteil ÖsterreicherInnen                                                         PCT    1            0,640205277727346         0,504493676802479        0,77139902002779  G03 Database 2
+ANTEIL_foreigners Anteil AusländerInnen                                                        PCT    1           0,359794722272655         0,22860097997221        0,495506323197521  G03 Database 2
