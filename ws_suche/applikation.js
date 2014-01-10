@@ -10,14 +10,13 @@ var wmsLayer = new ol.layer.Image({
   opacity: 0.6
 });
 
-var cityBikeLayer = new ol.layer.Image({
-  source: new ol.source.ImageWMS({
-    url: '/geoserver/wms',
-    params: {'LAYERS': 'g03_2013:CITYBIKEOGD'}
+var cityBikeLayer = new ol.layer.Vector({
+  source: new ol.source.Vector({
+    url: 'http://student.ifip.tuwien.ac.at/geoserver/g03_2013/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=g03_2013:CITYBIKEOGD&maxFeatures=50&outputFormat=json',
+    parser: new ol.parser.GeoJSON()
   }),
             style: new ol.style.Style({
-   
-                  symbolizers: [
+                     symbolizers: [
                     new ol.style.Shape({
                       fill: new ol.style.Fill({
                         color: '#B40404'
@@ -28,7 +27,7 @@ var cityBikeLayer = new ol.layer.Image({
                       })
                     })
                   ]
-            }
+            })
   });
 
 var fahrradabstell = new ol.layer.Image({
