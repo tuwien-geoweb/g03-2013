@@ -15,8 +15,21 @@ var cityBikeLayer = new ol.layer.Image({
     url: '/geoserver/wms',
     params: {'LAYERS': 'g03_2013:CITYBIKEOGD'}
   }),
-  opacity: 0.6
-});
+            style: new ol.style.Style({
+   
+                  symbolizers: [
+                    new ol.style.Shape({
+                      fill: new ol.style.Fill({
+                        color: '#B40404'
+                      }),
+                      size: 10,
+                      stroke: new ol.style.Stroke({
+                        color: '#610B0B'
+                      })
+                    })
+                  ]
+            }
+  });
 
 var fahrradabstell = new ol.layer.Image({
   source: new ol.source.ImageWMS({
