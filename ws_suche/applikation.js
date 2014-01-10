@@ -38,21 +38,33 @@ var fahrradabstell = new ol.layer.Vector({
             })
   });
 
-var trinkbrunnen = new ol.layer.Image({
-  source: new ol.source.ImageWMS({
-    url: '/geoserver/wms',
-    params: {'LAYERS': 'g03_2013:TRINKBRUNNENOGD'}
+var trinkbrunnen = new ol.layer.Vector({
+  source: new ol.source.Vector({
+    url: 'http://student.ifip.tuwien.ac.at/geoserver/g03_2013/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=g03_2013:TRINKBRUNNENOGD&maxFeatures=50&outputFormat=json',
+    parser: new ol.parser.GeoJSON()
   }),
-  opacity: 0.6
-});
+            style: new ol.style.Style({
+                     symbolizers: [
+               new ol.style.Icon({
+			url: '../../images/Trinkbrunnen.png',
+		       })
+                  ]
+            })
+  });
 
-var haltestellen = new ol.layer.Image({
-  source: new ol.source.ImageWMS({
-    url: '/geoserver/wms',
-    params: {'LAYERS': 'g03_2013:HALTESTELLEWLOGD'}
+var haltestellen = new ol.layer.Vector({
+  source: new ol.source.Vector({
+    url: 'http://student.ifip.tuwien.ac.at/geoserver/g03_2013/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=g03_2013:HALTESTELLEWLOGD&maxFeatures=50&outputFormat=json',
+    parser: new ol.parser.GeoJSON()
   }),
-  opacity: 0.6
-});
+            style: new ol.style.Style({
+                     symbolizers: [
+               new ol.style.Icon({
+			url: '../../images/Haltestellen.png',
+		       })
+                  ]
+            })
+  });
 
 var oefflinien = new ol.layer.Image({
   source: new ol.source.ImageWMS({
