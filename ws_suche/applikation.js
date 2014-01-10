@@ -32,7 +32,7 @@ var fahrradabstell = new ol.layer.Vector({
             style: new ol.style.Style({
                      symbolizers: [
                new ol.style.Icon({
-			url: '../../images/fahhradabstellanlage1.png',
+			url: '../../images/fahrradabstellanlage1.png',
 		       })
                   ]
             })
