@@ -1,7 +1,7 @@
-Data Item	            Item_Description
+Data Item	            Item_Description                        Unit	Decimal	  Minimum	  Maximum	  Source
 DISTRICT_C            Postleitzahl Bezirk
-Bev_Foreigners        Ausländische Bev. gesamt
-ANTEIL_male           Anteil Männer an Bevölkerung
-ANTEIL_female         Anteil Frauen an Bevölkerung
-ANTEIL_austrians      Anteil Österreicher an Bevölkerung
-ANTEIL_foreigners     Anteil Ausländer an Bevölkerung
+ANTEIL_male           Anteil Männer an Bevölkerung            PCT      2	      0,46	    0,49	  OGDWIEN
+ANTEIL_female         Anteil Frauen an Bevölkerung            PCT      2	      0,51	    0,54	  OGDWIEN
+ANTEIL_austrians      Anteil Österreicher an Bevölkerung      PCT      2	      0,5	      0,77	  OGDWIEN    
+ANTEIL_foreigners     Anteil Ausländer an Bevölkerung         PCT      2	      0,23	    0,5	    OGDWIEN
+
