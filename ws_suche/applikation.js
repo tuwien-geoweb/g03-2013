@@ -18,7 +18,7 @@ var cityBikeLayer = new ol.layer.Vector({
             style: new ol.style.Style({
                      symbolizers: [
                new ol.style.Icon({
-			url: '../images/Citybike1.jpg',
+			url: '/scratch/users/geoweb2013/htdocs/g03/images/Citybike.jpg',
 		})
                   ]
             })
