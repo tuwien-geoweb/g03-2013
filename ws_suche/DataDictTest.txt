@@ -2,5 +2,5 @@ Data Item	            Item_Description
 DISTRICT_C            Postleitzahl Bezirk
 ANTEIL_male           Anteil Männer an Bevölkerung
 ANTEIL_female         Anteil Frauen an Bevölkerung
-ANTEIL_austrians     Anteil Österreicher an Bevölkerung
-ANTEIL_foreigners    Anteil Ausländer an Bevölkerung
+ANTEIL_austrians      Anteil Österreicher an Bevölkerung
+ANTEIL_foreigners     Anteil Ausländer an Bevölkerung
