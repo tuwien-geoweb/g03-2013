@@ -17,15 +17,9 @@ var cityBikeLayer = new ol.layer.Vector({
   }),
             style: new ol.style.Style({
                      symbolizers: [
-               new ol.style.Shape({
-                      fill: new ol.style.Fill({
-                        color: '#B40404'
-                      }),
-                      size: 10,
-                      stroke: new ol.style.Stroke({
-                        color: '#610B0B'
-                      })
-                    })
+               new ol.style.Icon({
+			url: 'images/Citybike.png',
+		       })
                   ]
             })
   });
