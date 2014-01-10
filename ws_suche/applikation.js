@@ -24,13 +24,19 @@ var cityBikeLayer = new ol.layer.Vector({
             })
   });
 
-var fahrradabstell = new ol.layer.Image({
-  source: new ol.source.ImageWMS({
-    url: '/geoserver/wms',
-    params: {'LAYERS': 'g03_2013:FAHRRADABSTELLANLAGEOGD'}
+var fahrradabstell = new ol.layer.Vector({
+  source: new ol.source.Vector({
+    url: 'http://student.ifip.tuwien.ac.at/geoserver/g03_2013/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=g03_2013:FAHRRADABSTELLANLAGEOGD&maxFeatures=50&outputFormat=json',
+    parser: new ol.parser.GeoJSON()
   }),
-  opacity: 0.6
-});
+            style: new ol.style.Style({
+                     symbolizers: [
+               new ol.style.Icon({
+			url: '../../images/fahhradabstellanlage1.png',
+		       })
+                  ]
+            })
+  });
 
 var trinkbrunnen = new ol.layer.Image({
   source: new ol.source.ImageWMS({
