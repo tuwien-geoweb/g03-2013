@@ -12,7 +12,7 @@ var wmsLayer = new ol.layer.Image({
 
 var cityBikeLayer = new ol.layer.Vector({
   source: new ol.source.Vector({
-    url: 'http://student.ifip.tuwien.ac.at/geoserver/g03_2013/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=g03_2013:CITYBIKEOGD&maxFeatures=50&outputFormat=json',
+    url: 'http://student.ifip.tuwien.ac.at/geoserver/g03_2013/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=g03_2013:CITYBIKEOGD&outputFormat=json',
     parser: new ol.parser.GeoJSON()
   }),
             style: new ol.style.Style({
@@ -26,7 +26,7 @@ var cityBikeLayer = new ol.layer.Vector({
 
 var fahrradabstell = new ol.layer.Vector({
   source: new ol.source.Vector({
-    url: 'http://student.ifip.tuwien.ac.at/geoserver/g03_2013/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=g03_2013:FAHRRADABSTELLANLAGEOGD&maxFeatures=50&outputFormat=json',
+    url: 'http://student.ifip.tuwien.ac.at/geoserver/g03_2013/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=g03_2013:FAHRRADABSTELLANLAGEOGD&outputFormat=json',
     parser: new ol.parser.GeoJSON()
   }),
             style: new ol.style.Style({
@@ -40,7 +40,7 @@ var fahrradabstell = new ol.layer.Vector({
 
 var trinkbrunnen = new ol.layer.Vector({
   source: new ol.source.Vector({
-    url: 'http://student.ifip.tuwien.ac.at/geoserver/g03_2013/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=g03_2013:TRINKBRUNNENOGD&maxFeatures=50&outputFormat=json',
+    url: '/geoserver/g03_2013/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=g03_2013:TRINKBRUNNENOGD&outputFormat=json',
     parser: new ol.parser.GeoJSON()
   }),
             style: new ol.style.Style({
@@ -54,7 +54,7 @@ var trinkbrunnen = new ol.layer.Vector({
 
 var haltestellen = new ol.layer.Vector({
   source: new ol.source.Vector({
-    url: 'http://student.ifip.tuwien.ac.at/geoserver/g03_2013/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=g03_2013:HALTESTELLEWLOGD&maxFeatures=50&outputFormat=json',
+    url: 'http://student.ifip.tuwien.ac.at/geoserver/g03_2013/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=g03_2013:HALTESTELLEWLOGD&outputFormat=json',
     parser: new ol.parser.GeoJSON()
   }),
             style: new ol.style.Style({
