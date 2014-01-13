@@ -1,7 +1,11 @@
 Data Item	            Item_Description                      
 DISTRICT_C            Postleitzahl Bezirk
-ANTEIL_male           Anteil Männer an Bevölkerung           
-ANTEIL_female         Anteil Frauen an Bevölkerung          
-ANTEIL_austrians      Anteil Österreicher an Bevölkerung     
-ANTEIL_foreigners     Anteil Ausländer an Bevölkerung      
+ANTEIL_male           Anteil Männer an Bevölkerung des Bezirkes          
+ANTEIL_female         Anteil Frauen an Bevölkerung des Bezirkes         
+ANTEIL_austrians      Anteil Österreicher an Bevölkerung des Bezirkes   
+ANTEIL_foreigners     Anteil Ausländer an Bevölkerung des Bezirkes 
+ANTEIL_unter18        Anteil unter 18-Jähriger an Bevölkerung des Bezirkes
+ANTEIL_unter19-39     Anteil unter 19- bis 39-Jähriger an Bevölkerung des Bezirkes
+ANTEIL_unter40-64     Anteil unter 40- bis 64-Jähriger an Bevölkerung des Bezirkes
+ANTEIL_ueber65        Anteil über 65-Jähriger an Bevölkerung des Bezirkes
 
