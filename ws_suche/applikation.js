@@ -7,7 +7,7 @@ var wmsLayer = new ol.layer.Image({
     url: '/geoserver/wms',
     params: {'LAYERS': 'g03_2013:Anteile'}
   }),
-  opacity: 0.6
+  opacity: 0.8
 });
 
 var cityBikeLayer = new ol.layer.Vector({
