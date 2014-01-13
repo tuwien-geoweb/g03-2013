@@ -5,7 +5,7 @@ var osmLayer = new ol.layer.Tile({source: new ol.source.OSM()});
 var wmsLayer = new ol.layer.Image({
   source: new ol.source.ImageWMS({
     url: '/geoserver/wms',
-    params: {'LAYERS': 'g03_2013:Anteile&viewparams=column:ANTEIL_austrians, g03_2013:Anteile&viewparams=column:ANTEIL_male, g03_2013:Anteile&viewparams=column:ANTEIL_female, g03_2013:Anteile&viewparams=column:ANTEIL_foreigners'}
+    params: {'LAYERS': 'g03_2013:Anteile'}
   }),
   opacity: 0.6
 });
