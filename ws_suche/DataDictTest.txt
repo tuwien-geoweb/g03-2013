@@ -5,7 +5,7 @@ ANTEIL_female         Anteil Frauen an Bevölkerung des Bezirkes
 ANTEIL_austrians      Anteil Österreicher an Bevölkerung des Bezirkes   
 ANTEIL_foreigners     Anteil Ausländer an Bevölkerung des Bezirkes 
 ANTEIL_unter18        Anteil unter 18-Jähriger an Bevölkerung des Bezirkes
-ANTEIL_unter19-39     Anteil unter 19- bis 39-Jähriger an Bevölkerung des Bezirkes
-ANTEIL_unter40-64     Anteil unter 40- bis 64-Jähriger an Bevölkerung des Bezirkes
+ANTEIL_unter1939      Anteil der 19- bis 39-Jährigen an Bevölkerung des Bezirkes
+ANTEIL_unter4064      Anteil der 40- bis 64-Jährigen an Bevölkerung des Bezirkes
 ANTEIL_ueber65        Anteil über 65-Jähriger an Bevölkerung des Bezirkes
 
